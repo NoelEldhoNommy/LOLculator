@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f4f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+.calculator {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 92%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.display-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  margin-bottom: 12px;
+}
+#expression,
+#result {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  text-align: right;
+  background: #f9f9f9;
+  height: 48px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#result {
+  font-weight: 700;
+  font-size: 20px;
+  background: #eef6ff;
+}
+input[readonly] {
+  color: #222;
+  opacity: 1;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+button {
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+}
+button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.aux-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+.aux-row button {
+  flex: 1;
+}
+.btn-clear {
+  background: #dc3545;
+}
+.btn-back {
+  background: #6c757d;
+}
+
+.joke {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #444;
+  font-style: italic;
+  min-height: 40px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  text-align: center;
+  width: 100%;
+}
+.joke.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 420px) {
+  button {
+    padding: 12px;
+    font-size: 15px;
+  }
+  #expression,
+  #result {
+    font-size: 16px;
+    height: 44px;
+  }
+}
