@@ -75,7 +75,20 @@ async function calculate() {
       throw new Error('Non-finite result');
     }
   } catch (err) {
-    //ignore
+    // fallback: try a second pass removing any stray characters and re-evaluating
+    try {
+      const fallback = expr.replace(/[^0-9+\-*/().]/g, '');
+      const value2 = Function('"use strict"; return (' + fallback + ')')();
+      if (typeof value2 === 'number' && Number.isFinite(value2)) {
+        resultBox.value = value2;
+        showJoke(await getRandomJoke(expr, value2));
+        return;
+      }
+    } catch (e) {
+      // ignore
+    }
+    resultBox.value = 'Error';
+    showJoke(await getRandomJoke(expr, resultBox.value));
   }
 
   expressionBox.value = '';

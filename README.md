@@ -2,7 +2,7 @@
 
 this calculator makes jokes whenever you calculate something
 
-<img src="preview.jpg" alt="preview.jpg" width="490" height="750" />
+<img src="preview.png" alt="preview.png" width="490" height="750" />
 
 ## Technology
 
